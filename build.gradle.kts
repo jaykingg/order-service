@@ -21,7 +21,7 @@ repositories {
 
 dependencies {
     kapt("com.github.therapi:therapi-runtime-javadoc-scribe:0.15.0")
-    kapt("org.mapstruct:mapstruct-processor:1.5.3.Final")
+    kapt("org.mapstruct:mapstruct-processor:1.5.5.Final")
     kapt("org.springframework.boot:spring-boot-configuration-processor")
 
     // Bill of Materials (BOM)
