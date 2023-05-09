@@ -1,0 +1,10 @@
+{
+  "filter": {},
+  "update": [
+    {
+      "$set": {
+        "rewarded": false
+      }
+    }
+  ]
+}

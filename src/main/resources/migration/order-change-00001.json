@@ -1,0 +1,14 @@
+{
+  "filter": {
+    "payment.approvedAt": {
+      "$ne": null
+    }
+  },
+  "update": [
+    {
+      "$set": {
+        "placedAt": "$payment.approvedAt"
+      }
+    }
+  ]
+}

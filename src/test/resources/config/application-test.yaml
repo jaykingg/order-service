@@ -1,0 +1,18 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        opaque-token:
+          client-id: unknown
+          client-secret: unknown
+          introspection-uri: unknown
+
+api:
+  private-hostname: http://localhost:8090
+
+mongock:
+  enabled: false
+
+toss-payments:
+  base-url: http://localhost:8090
+  secret: unknown

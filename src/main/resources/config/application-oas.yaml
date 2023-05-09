@@ -1,0 +1,24 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+  security:
+    oauth2:
+      resourceserver:
+        opaque-token:
+          client-id: unknown
+          client-secret: unknown
+          introspection-uri: unknown
+
+api:
+  private-hostname: http://localhost:8080
+
+toss-payments:
+  base-url: http://localhost:8080
+  secret: unknown
+
+mongock:
+  enabled: false
+
+springdoc:
+  api-docs.enabled: true

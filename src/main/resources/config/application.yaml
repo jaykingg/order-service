@@ -1,0 +1,103 @@
+########################################
+# Default Configuration
+########################################
+
+spring:
+  data:
+    mongodb:
+      database: order-db
+      auto-index-creation: true
+  devtools:
+    livereload:
+      enabled: false
+  jackson:
+    default-property-inclusion: non_null
+    deserialization:
+      read-date-timestamps-as-nanoseconds: false
+    serialization:
+      write-dates-as-timestamps: true
+      write-date-timestamps-as-nanoseconds: false
+    mapper:
+      default-view-inclusion: true
+
+logging:
+  charset:
+    console: utf-8
+    file: utf-8
+
+server:
+  error:
+    whitelabel:
+      enabled: false
+    include-stacktrace: never
+  forward-headers-strategy: native
+
+management:
+  endpoint.health.probes.enabled: true
+
+springdoc:
+  swagger-ui.enabled: false
+  api-docs.enabled: false
+  packages-to-scan: io.hobbyful.orderservice
+
+mongock:
+  enabled: true
+
+---
+
+########################################
+# Spring Cloud Stream Configuration
+########################################
+
+spring:
+  config:
+    activate:
+      on-profile: "!oas"
+  cloud:
+    stream:
+      output-bindings: order-placed;order-refund;order-closed
+      bindings:
+        order-placed-out-0:
+          destination: order-placed
+          group: ${spring.application.name}
+        order-refund-out-0:
+          destination: order-refund
+          group: ${spring.application.name}
+        order-closed-out-0:
+          destination: order-closed
+          group: ${spring.application.name}
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: "dev | prod"
+  cloud:
+    stream:
+      kafka:
+        binder:
+          authorization-exception-retry-interval: 1s
+          configuration:
+            security.protocol: SASL_SSL
+            sasl.mechanism: AWS_MSK_IAM
+            sasl.jaas.config: software.amazon.msk.auth.iam.IAMLoginModule required;
+            sasl.client.callback.handler.class: software.amazon.msk.auth.iam.IAMClientCallbackHandler
+
+---
+
+########################################
+# Log Level Configuration
+########################################
+
+spring:
+  config:
+    activate:
+      on-profile: "!prod"
+
+logging:
+  level:
+    web: debug
+    io.hobbyful.orderservice: debug
+    org.springframework.data.mongodb: debug
+    org.springframework.cloud.stream: debug
