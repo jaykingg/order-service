@@ -61,7 +61,7 @@ dependencies {
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
-    testImplementation("com.marcinziolo:kotlin-wiremock:2.0.1")
+    testImplementation("com.marcinziolo:kotlin-wiremock:2.0.2")
     testImplementation("com.ninja-squad:springmockk:4.0.0")
     testImplementation("io.github.serpro69:kotlin-faker:1.13.0")
     testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.2")
