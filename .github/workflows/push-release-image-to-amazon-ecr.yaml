@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1-node16
+        uses: aws-actions/configure-aws-credentials@v2.1.0
         with:
           role-to-assume: arn:aws:iam::650504438179:role/GitHubOIDCAssumingRole
           aws-region: ap-northeast-2
