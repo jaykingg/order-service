@@ -86,6 +86,6 @@ jobs:
         with:
           arguments: clean generateOpenApiDocs
 
-      - uses: readmeio/rdme@8.4.0
+      - uses: readmeio/rdme@8.6.4
         with:
           rdme: openapi ./build/openapi.json --key=${{ secrets.README_API_KEY }} --id=${{ secrets.README_API_ID }}
