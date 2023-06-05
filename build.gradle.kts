@@ -30,7 +30,7 @@ dependencies {
     implementation(platform("io.mongock:mongock-bom:5.2.2"))
     implementation(platform("org.springdoc:springdoc-openapi:1.6.14"))
     implementation(platform("org.springframework.cloud:spring-cloud-dependencies:2021.0.5"))
-    implementation(platform("org.testcontainers:testcontainers-bom:1.17.6"))
+    implementation(platform("org.testcontainers:testcontainers-bom:1.18.3"))
 
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
